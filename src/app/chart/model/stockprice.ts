@@ -1,0 +1,2 @@
+export const priceData ={"weekList":{"companyCd":null,"stockCd":"500112","periodType":"week","dates":[],"values":[]},"quarterList":{"companyCd":null,"stockCd":"500112","periodType":"quarter","dates":[],"values":[]},"monthList":{"companyCd":null,"stockCd":"500112","periodType":"month","dates":["2019-05-31","2019-06-28"],"values":[454.65,384.46]},"yearList":{"companyCd":null,"stockCd":"500112","periodType":"year","dates":[],"values":[]}};
+ 

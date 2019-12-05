@@ -1,0 +1,27 @@
+<form class="form-horizontal" [formGroup]="searchForm" role="form" (ngSubmit)="findStockPrice(searchForm.value)">
+	<div class="form-group">
+		<div class="col-sm-6">
+			<select class="custom-select" id="sectorCd" formControlName="sectorCd" style="width:400px;line-height:40px;height:30px">
+				<option *ngFor="let sector of sectorNameList; index as productId" value="{{sector.sectorCd}}">{{sector.sectorCd}}-{{sector.sectorName}}</option>
+			</select> &nbsp;&nbsp;
+			<button type="submit" class="btn btn-default">&nbsp;&nbsp;Show Chart&nbsp;&nbsp;</button>
+			<a href="{{downloadURL}}/sector?sectorCd={{searchForm.value.sectorCd}}"><button type="button" class="btn btn-default">Export Stock Data</button></a>
+		</div>
+	</div>
+</form>
+
+<div echarts [options]="lineOption" (chartInit)="onChartInit($event)" class="demo-chart"></div>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default" (click)=setWeek()>week</button>
+	</div>
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default" (click)=setMonth()>Month</button>
+	</div>
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default" (click)=setQuarter()>Quarter</button>
+	</div>
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default" (click)=setYear()>Year</button>
+	</div>
+</div>

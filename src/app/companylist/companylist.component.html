@@ -1,0 +1,44 @@
+<form class="form-horizontal" [formGroup]="searchForm" role="form" (ngSubmit)="findCompanyByName(searchForm.value)">
+	<div class="form-group">
+		<div class="col-sm-4">
+			<input class="form-control" id="companyName" formControlName="companyName" type="text" placeholder="Input company name..." />
+			<div id="dataList" class="select-box mui-inline">
+				<ul id="ulList" type="none" class="custom-option-box">
+					<li (click)="showLi($event)" *ngFor="let comName of compNameList;">{{comName}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-13">
+			<button type="submit" class="btn btn-default">&nbsp;&nbsp;Search&nbsp;&nbsp;</button>
+		</div>
+	</div>
+</form>
+<div width="100%" align="right" style="position:relative; background-image: linear-gradient(45deg, #5d5555, transparent);">
+	<table class="table table-condensed" style="vertical-align:middle;">
+		<thead>
+			<tr class="">
+				<th scope="col">&nbsp;&nbsp;&nbsp;#</th>
+				<th scope="col">Company Name</th>
+				<th scope="col">Stock Exchanges</th>
+				<th scope="col">Stock code</th>
+				<th scope="col">brief</th>
+				<th><button type="button" class="btn btn-default" routerLink="/companyupdate" [queryParams]="{op:'add'}">&nbsp;&nbsp;Add&nbsp;&nbsp;</button></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<tr *ngFor="let company of companyList; index as productId">
+					<td><img src="../../favicon.ico" class="img-circle"></td>
+					<td  style="color:white" >
+						{{ company.companyName }}
+					</td>
+					<td style="color:white" >{{ company.exchName }}</td>
+					<td style="color:white" >{{ company.stockCd }}</td>
+					<td style="color:white" >{{ company.brief }}</td>
+					<td><button type="button" class="btn btn-default" routerLink="/companyupdate" [queryParams]="{op:'update',companyCd:company.companyCd, companyName: company.companyName}">&nbsp;&nbsp;Edit&nbsp;&nbsp;</button>
+					</td>
+					<th>&nbsp;</th>
+				</tr>
+		</tbody>
+	</table>
+</div>

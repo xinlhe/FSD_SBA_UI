@@ -1,0 +1,1 @@
+export const bfresponse={"status":"0","token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2t5IiwiZXhwIjoyMDA2NzU2NjczLCJpYXQiOjE1NzQ3NTY2NzN9.L7fjE_jtFM_qY-vN11nH_ukYDbInq7N_LywKKkReOwsTDOtbXgmS-TgzibIB3HqMOKGe2as6ZNQBM9NkvTJnSA"};

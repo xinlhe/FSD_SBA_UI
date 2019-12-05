@@ -1,0 +1,15 @@
+<p>
+  bluechart works!
+</p>
+<div echarts [options]="lineOption"  (chartInit)="onChartInit($event)" class="demo-chart"></div>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default" (click)=setMonth()>Month</button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default" (click)=set6Month()>Six months</button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default" (click)=setYear()>Year</button>
+  </div>
+</div>

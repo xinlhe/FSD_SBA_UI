@@ -1,0 +1,79 @@
+<div width="100%" align="right" style="position:relative; background-image: linear-gradient(45deg, #5d5555, transparent);">
+	<form class="form-horizontal" style="height:580px;" [formGroup]="ipoForm" role="form" (ngSubmit)="onSubmit(ipoForm.value)">
+		<div class="form-group">
+			<div class="col-lg-8">
+				<h3 class="text-center" style="padding-left: 45%;">IPO Plan Adder</h3>
+			</div>
+		</div>
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="companyCd">Company Code:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="id" formControlName="id" type="hidden">
+				<input class="form-control" id="companyCd" formControlName="companyCd" readonly type="text">
+			</div>
+		</div>
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="companyName">Company Name:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="companyName" formControlName="companyName" type="text">
+			</div>
+		</div>
+		
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="stockCd">Stock Code:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="stockCd" formControlName="stockCd" type="text">
+			</div>
+		</div>
+		
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="sectorCd">Sector Code:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="sectorCd" formControlName="sectorCd" type="text" disabled="true">
+			</div>
+		</div>
+
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="exchangeCd">Exchange Name:</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="exchangeCd" formControlName="exchangeCd">
+					<option value="SHE">Shanghai Stock Exchange</option>
+					<option value="SZE">Shenzhen Stock Exchange</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="pricePerShare">Price Per Share:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="pricePerShare" formControlName="pricePerShare" type="text" placeholder="Price...">
+			</div>
+		</div>
+
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="totalShares">Total Shares:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="totalShares" formControlName="totalShares" type="text" placeholder="totalShares...">
+			</div>
+		</div>
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="openDate">Open Date:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="openDate" formControlName="openDate" type="date" placeholder="Date...">
+			</div>
+		</div>
+
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="remarks">Remarks:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="remarks" formControlName="remarks" type="text" placeholder="Remarks...">
+			</div>
+		</div>
+		<div class="btn-group col-sm-offset-6 col-sm-6" style="padding-left: 9%; padding-top:20px;">
+
+			<input class="btn btn-default" style="width: 150px;" type="submit" value="Save">
+			<!--<input (click)="goBack()" class="btn btn-default" type = "button" value = "Back">-->
+
+		</div>
+	</form>
+</div>

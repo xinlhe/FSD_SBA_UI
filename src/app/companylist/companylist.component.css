@@ -1,0 +1,34 @@
+
+.select-box {
+    position: absolute;
+	display: none ;
+    background: red;
+	width:100%;
+	z-index: 10
+}
+			
+.custom-option-box {
+     margin: 0;
+	padding: 0;
+    left: 0;
+    top: 40px;
+    background: #FFF;
+    border: 1px solid #ccc;
+    border-top-color: transparent;
+ }
+.custom-option-li {
+    line-height:30px;
+    padding:0;
+    margin: 0;
+	background: gray;
+    z-index: 10000;
+	cursor: pointer;
+}
+.custom-option-box li:hover, 
+.custom-option-box li.active {
+    background: #F2C051;
+	cursor: pointer;
+}
+.custom-option-box span {
+    cursor: pointer;
+}

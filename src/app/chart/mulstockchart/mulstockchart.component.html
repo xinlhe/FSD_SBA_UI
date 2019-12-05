@@ -1,0 +1,58 @@
+<form class="form-horizontal" [formGroup]="searchForm" role="form" (ngSubmit)="findStockPrice(searchForm.value)">
+	<table width="80%" align="center">
+		<tr>
+			<td>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<select class="custom-select" id="stockCd1" formControlName="stockCd1" style="width:400px;line-height:40px;height:30px">
+							<option *ngFor="let company of compNameList; index as productId" value="{{company.stockCd}}">{{company.stockCd}}-{{company.companyName}}</option>
+						</select> &nbsp;&nbsp;
+					</div>
+					<div class="col-sm-15">
+						<label for="fromDate" class="col-sm-2 control-label">From Date: </label>
+						<div class="col-lg-4">
+							<input type="date" class="form-control" id="fromDate" formControlName="fromDate" placeholder="Please input date">
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<select class="custom-select" id="stockCd2" formControlName="stockCd2" style="width:400px;line-height:40px;height:30px">
+							<option *ngFor="let company of compNameList; index as productId" value="{{company.stockCd}}">{{company.stockCd}}-{{company.companyName}}</option>
+						</select>
+					</div>
+					<div class="col-sm-15">
+						<label for="toDate" class="col-sm-2 control-label">To Date: </label>
+						<div class="col-lg-4">
+							<input type="date" class="form-control" id="toDate" formControlName="toDate" placeholder="Please input date"> &nbsp;&nbsp;
+							<button type="submit" style="margin-top: 20px;" class="btn btn-default">&nbsp;&nbsp;Compare&nbsp;&nbsp;</button>
+							<button style="margin-top: 20px;margin-left: 10px;" class="btn btn-default" onclick="downloadExc()">
+								Export Stock Data
+							</button>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</form>
+
+<div echarts [options]="lineOption" (chartInit)="onChartInit($event)" class="demo-chart"></div>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default" (click)=setWeek()>week</button>
+	</div>
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default" (click)=setMonth()>Month</button>
+	</div>
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default" (click)=setQuarter()>Quarter</button>
+	</div>
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default" (click)=setYear()>Year</button>
+	</div>
+</div>

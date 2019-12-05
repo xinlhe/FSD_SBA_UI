@@ -1,0 +1,77 @@
+<div width="100%" align="right" style="position:relative; background-image: linear-gradient(45deg, #5d5555, transparent);">
+	<form class="form-horizontal" style="height:500px;" [formGroup]="companyForm" role="form" (ngSubmit)="onSubmit(companyForm.value)">
+		<div class="form-group" style="padding-left: 30%;">
+			<div class="col-lg-7">
+				<h3 class="text-center">Company Profile</h3>
+			</div>
+		</div>
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="companyCd">Company Code:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="companyCd" formControlName="companyCd" type="text" placeholder="Company Code...">
+			</div>
+		</div>
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="companyName">Company Name:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="companyName" formControlName="companyName" type="text" placeholder="Company Name...">
+			</div>
+		</div>
+
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="ceoName">CEO Name:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="ceoName" formControlName="ceoName" type="text" placeholder="CEO Name...">
+			</div>
+		</div>
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="director">Director:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="director" formControlName="director" type="text" placeholder="Director...">
+			</div>
+		</div>
+
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="brief">Description:</label>
+			<div class="col-sm-6">
+				<input class="form-control" id="brief" formControlName="brief" type="text" placeholder="Description...">
+			</div>
+		</div>
+
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="exchCd">Exchange Name:</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="exchCd" formControlName="exchCd">
+					<option value="SHE">Shanghai Stock Exchange</option>
+					<option value="SZE">Shenzhen Stock Exchange</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" style="padding-left: 20%;">
+			<label class="col-sm-2 control-label" for="sectorCd">Sector Code:</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="sectorCd" formControlName="sectorCd">
+					<option value="0101">agruculture</option>
+					<option value="0102">forest</option>
+					<option value="0337">traffic</option>
+					<option value="0340">computer</option>
+					<option value="1068">bank</option>
+					<option value="1069">security</option>
+				</select>
+			</div>
+		</div>
+		<div class="btn-group col-sm-offset-2 col-sm-7" style="padding-left: 20%;">
+
+			<input class="btn btn-default" style="width: 120px;" type="submit" value="Save">
+			<!--<input routerLink ="/companylist" class="btn btn-default" type = "button" value = "Back">-->
+			<!--
+		  	<a routerLink ="/ipoplan" [queryParams]="{companyCd:companyForm.value.companyCd, companyName: companyForm.value.companyName}">IPO Plan</a>
+		  -->
+			<input style="width: 120px;" routerLink="/ipoplan" [queryParams]="{sectorCd: companyForm.value.sectorCd, companyName: companyForm.value.companyName,companyCd:companyForm.value.companyCd}" class="btn btn-default" type="button" value="IPO Plan">
+			<!--
+		  	<a routerLink ="/singlestockchart" [queryParams]="{companyName: companyForm.value.companyName,companyCd:companyForm.value.companyCd}">View Chart</a>
+		  -->
+			<input style="width: 120px;" routerLink="/singlestockchart" [queryParams]="{companyName: companyForm.value.companyName,companyCd:companyForm.value.companyCd}" class="btn btn-default" type="button" value="View Chart">
+		</div>
+	</form>
+</div>

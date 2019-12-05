@@ -1,0 +1,30 @@
+<div width="100%" align="right" style="position:relative; background-image: linear-gradient(45deg, #5d5555, transparent);">
+<table class="table table-condensed">
+	<thead>
+		<tr class="">
+			<th scope="col">#</th>
+			<th scope="col">Stock Exchange</th>
+			<th scope="col">description</th>
+			<th scope="col">Address</th>
+			<th scope="col">Remarks</th>
+			<th><button type="button" class="btn btn-default" routerLink="/exchangeadd" [queryParams]="{op:'add'}">&nbsp;&nbsp;Add&nbsp;&nbsp;</button></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<tr *ngFor="let exchange of exchangeList; index as productId">
+				<td style="color:white"><img src="../../favicon.ico" class="img-circle"></td>
+				<td style="color:white">
+					{{ exchange.exchName }}
+				</td>
+				<td style="color:white">{{ exchange.brief }}</td>
+				<td style="color:white">{{ exchange.contactAddr }}</td>
+				<td style="color:white">{{ exchange.remarks }}</td>
+				<td>
+					<p><button type="button" class="btn btn-default" routerLink="/exchangeadd" [queryParams]="{op:'update', exchCd: exchange.exchCd}">&nbsp;&nbsp;Edit&nbsp;&nbsp;</button></p>
+				</td>
+				<th>&nbsp;</th>
+			</tr>
+	</tbody>
+</table>
+</div>

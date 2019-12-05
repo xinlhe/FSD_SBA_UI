@@ -1,0 +1,4 @@
+export const priceData ={"weekList":[{"companyCd":null,"stockCd":"500112","periodType":"week","dates":["2019-05-17","2019-05-24","2019-05-31","2019-06-07"],"values":[100.65,100.65,200.65,200.46]},{"companyCd":null,"stockCd":"600116","periodType":"week","dates":["2019-05-17","2019-05-24","2019-05-31","2019-06-07"],"values":[300.65,300.65,400.65,400.46]}],
+"quarterList":[{"companyCd":null,"stockCd":"500112","periodType":"quarter","dates":[],"values":[]},{"companyCd":null,"stockCd":"600116","periodType":"quarter","dates":[],"values":[]}],
+"monthList":[{"companyCd":null,"stockCd":"500112","periodType":"month","dates":["2019-05-31"],"values":[454.65]},{"companyCd":null,"stockCd":"600116","periodType":"month","dates":["2019-05-31"],"values":[226.65]}],
+"yearList":[{"companyCd":null,"stockCd":"500112","periodType":"year","dates":[],"values":[]},{"companyCd":null,"stockCd":"600116","periodType":"year","dates":[],"values":[]}]};
