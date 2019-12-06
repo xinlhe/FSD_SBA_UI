@@ -177,7 +177,7 @@ export class MulstockchartComponent implements OnInit {
 
 		this.lineOption.xAxis.data = priceDL[0].dates;
 		this.lineOption.yAxis.min = 0;
-		this.lineOption.yAxis.max = 2000;
+		this.lineOption.yAxis.max = 6000;
 		this.lineOption.legend = {
 			data: legData
 		};

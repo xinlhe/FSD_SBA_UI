@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 	public userName: string;
 	public uid : string;
 	public isLogin: Boolean;
+	public isAdmin: Boolean;
 	
   constructor(public router:Router) { 
   	
@@ -24,13 +25,23 @@ export class HeaderComponent implements OnInit {
 		 var token = window.localStorage.getItem('token');
 		 this.userName = window.localStorage.getItem('userName');
 		 this.uid = window.localStorage.getItem("uid");
-			
+		
 		 if(this.userName != null) {
 		 	
 		 	 this.isLogin = false;
+		 	 
+		 	 if(this.userName == "admin") {
+		 	 	
+		 	 		this.isAdmin = true;
+		 	 }
+		 	 else {
+
+					this.isAdmin = false;
+		 	 }
 		 }
 		 else {
 		 	
+		 	 this.isAdmin = false;
 		 	 this.isLogin = true;
 		 }
   }

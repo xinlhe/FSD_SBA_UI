@@ -1,63 +1,88 @@
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid" style="background-image: linear-gradient(45deg, black, transparent);">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header" >
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid" style="background-image: linear-gradient(45deg, black, transparent);">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-    </div>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li *ngIf="isAdmin">
+						<a routerLink="/upload" style="color: aliceblue;">Import Data</a>
+					</li>
+					<li *ngIf="isAdmin" class="dropdown">
+						<a style="color: aliceblue;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Company <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a routerLink="/companylist">Find Company</a>
+							</li>
+							<li>
+								<a routerLink="/companyupdate" [queryParams]="{op:'add'}">Add Company</a>
+							</li>
+						</ul>
+					</li>
+					<li *ngIf="isAdmin" class="dropdown">
+						<a href="#" style="color: aliceblue;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Exchange <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a routerLink="/exchangelist">Exchange List</a>
+							</li>
+							<li>
+								<a routerLink="/exchangeadd" [queryParams]="{op:'add'}">Add Exchange</a>
+							</li>
+						</ul>
+					</li>
+					<li *ngIf="isAdmin">
+						<a style="color: aliceblue;" routerLink="/ipoplan" [queryParams]="{op:'add'}">Add IPO details</a>
+					</li>
+					
+					<li *ngIf="!isAdmin">
+						<a style="color: aliceblue;" routerLink="/ipoplan" [queryParams]="{op:'add'}">IPOs</a>
+					</li>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-		<li ><a routerLink="/upload" style="color: aliceblue;">Import Stock Data</a></li>
-		<li class="dropdown">
-          <a style="color: aliceblue;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Company <span class="caret"></span></a>
-          <ul class="dropdown-menu">            
-            <li><a routerLink="/companylist">Find Company</a></li>
-			<li><a routerLink="/companyupdate" [queryParams]="{op:'add'}">Add Company</a></li>
-          </ul>
-        </li>        
-        <li class="dropdown">
-          <a href="#" style="color: aliceblue;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Exchange <span class="caret"></span></a>
-          <ul class="dropdown-menu">            
-            <li><a routerLink="/exchangelist">Exchange List</a></li>
-			<li><a routerLink="/exchangeadd" [queryParams]="{op:'add'}">Add Exchange</a></li>
-          </ul>
-        </li>
-		<li><a style="color: aliceblue;" routerLink="/ipoplan" [queryParams]="{op:'add'}">Add IPO</a></li>
-		
-		<li class="dropdown">
-          <a href="#"style="color: aliceblue;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chart <span class="caret"></span></a>
-          <ul class="dropdown-menu">            
-            <li><a  routerLink="/singlestockchart">company chart</a></li>
-			<li><a routerLink="/mulstockchart">company comparison chart</a></li>
-			<!--<li><a routerLink="/singlesectorchart">sector chart</a></li>-->
-			<li><a routerLink="/mulsectorchart">sector comparison chart</a></li>
-			<li><a routerLink="/stocksectorchart">company sector comparison chart</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
+					<li *ngIf="!isAdmin">
+						<a style="color: aliceblue;" routerLink="/singlestockchart">company chart</a>
+					</li>
 
-				<li *ngIf="!isLogin" style="padding-right: 20px;">	
-					<button type="button" class="btn btn-default" (click)='updateUserInfo(userName)' style="margin-top: 10px; color: black;">{{userName}}</button>
-				</li>
-        <li *ngIf="isLogin"><a href="/signin">Sign in</a></li>
-        <li *ngIf="isLogin"><a href="/signup">Sign up</a></li>
-				<li><input (click)="userLogout()" style="margin-top: 10px;" class="btn btn-default" type="button" value="Logout"></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+					<li *ngIf="!isAdmin">
+						<a style="color: aliceblue;" routerLink="/mulstockchart">company comparison chart</a>
+					</li>
+
+					<li *ngIf="!isAdmin">
+						<a style="color: aliceblue;" routerLink="/stocksectorchart">company sector comparison chart</a>
+					</li>
+
+				</ul>
+				<!--
+				<form class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Search</button>
+				</form>
+				-->
+				<ul class="nav navbar-nav navbar-right">
+
+					<li *ngIf="!isLogin" style="padding-right: 20px;">
+						<button type="button" class="btn btn-default" (click)='updateUserInfo(userName)' style="margin-top: 10px; color: black;">{{userName}}</button>
+					</li>
+					<li *ngIf="isLogin">
+						<a href="/signin">Sign in</a>
+					</li>
+					<li *ngIf="isLogin">
+						<a href="/signup">Sign up</a>
+					</li>
+					<li><input (click)="userLogout()" style="margin-top: 10px;" class="btn btn-default" type="button" value="Logout"></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
 </body>

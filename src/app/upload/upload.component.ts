@@ -50,11 +50,11 @@ export class UploadComponent implements OnInit {
 			(val) => {
 			if(val.status == -1) {
 
-				alert(val.retMsg);
+				// alert(val.retMsg);
 
 			} else {
-
-				alert(val.retMsg);
+				
+				alert("\tSummary of Upload\t\n" + "\r\n" + "Stock code : " + val.rb.stockCode + "\r\n" + "No. of records imported : " + val.rb.number + "\r\n" + "From : " +  val.rb.fromDate + "\r\n" + "To : " + val.rb.toDate);
 			}
 		});
 

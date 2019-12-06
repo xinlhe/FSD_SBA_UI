@@ -21,7 +21,7 @@ export class StocksectorchartComponent implements OnInit {
 	constructor(private http: HttpClient, private router: Router,
 		private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
 		this.searchForm = this.formBuilder.group({
-			stockCd: 'SZ000321',
+			stockCd: '',
 			fromDate: '2019-01-01',
 			toDate: '2019-12-31'
 
@@ -200,7 +200,7 @@ export class StocksectorchartComponent implements OnInit {
 
 		this.lineOption.xAxis.data = priceData[0].dates;
 		this.lineOption.yAxis.min = 0;
-		this.lineOption.yAxis.max = 2000;
+		this.lineOption.yAxis.max = 6000;
 		this.lineOption.legend = {
 			data: legData
 		};
