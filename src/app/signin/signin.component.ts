@@ -48,7 +48,14 @@ export class SigninComponent implements OnInit {
 					window.localStorage.setItem('userName', this.loginForm.value.userName);
 					window.localStorage.setItem('uid', val.uid);
 					alert(val.retMsg);
-					this.router.navigateByUrl("companylist");
+					if(this.loginForm.value.userName == 'admin') {
+						
+						this.router.navigateByUrl("companylist");
+					}
+					else {
+						
+						this.router.navigateByUrl("singlestockchart");
+					}
 				}
 			}
 		);
