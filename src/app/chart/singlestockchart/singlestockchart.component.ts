@@ -26,6 +26,11 @@ export class SinglestockchartComponent implements OnInit {
 
 			stockCd: '500112'
 		});
+		
+		if(location.href.indexOf("#reloaded")==-1) {
+	        location.href=location.href+"#reloaded";
+	        location.reload();
+	    }
 
 	}
 	ngOnInit() {
