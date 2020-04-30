@@ -24,7 +24,7 @@
     "bootstrap": "^3.4.1",
     "core-js": "^2.5.4",
     "echarts": "^4.5.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-echarts": "^4.2.2",
     "rxjs": "~6.2.0",
     "save": "^2.4.0",
